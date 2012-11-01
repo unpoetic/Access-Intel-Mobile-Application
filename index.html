@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Access Intel</title>
+        <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="shadows.css" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="buttons.css" type="text/css" media="screen" charset="utf-8" />
+
+
+
+                
+                <script id="indexTmpl" type="text/x-jquery-tmpl">
+                    <div style="margin:5px"><h3>Publications and Headlines for ${attributes.currentIssueDate}</h3></div> 
+                        {{each attributes.pubs}}
+                <div style="width:150px; float:left; margin-left:15px; margin-right: 15px;">
+                <div class="item" style="float:left; margin:5px; width:150px;">
+                 <div class="item-image">
+                     ${$value.pubname}
+                 </div>
+                </div>
+                 <div style="float:left; width:150px; margin:5px; font-size:12px;">
+                     {{each $value.items}}
+                     <a href="#">${$value.title}</a><br /><br />
+                     {{/each}}
+                 </div>
+                </div>
+                    {{/each}}
+                </script>
+				
+			
+				<script id="subindexTmpl" type="text/x-jquery-tmpl">
+                <div class="item  drop-shadow round">
+                 <div class="item-image subalbum">
+                     <a href="#story/${story}/${attributes.pid}"><img src="${attributes.image}" alt="${attributes.title}" alt="Story"/></a> 
+                 </div>
+                 <div class="item-artist">${attributes.artist}</div>
+                    <div class="item-title">${attributes.title}</div>
+                    <div class="item-price">$${attributes.price}</div>
+                </div>
+	
+                </script>
+				
+     
+                <script id="itemTmpl" type="text/x-jquery-tmpl">
+                <div class="item-detail">
+                  <div class="item-image drop-shadow round"><img src="${attributes.large_image}" alt="${attributes.title}" /></div>
+                  <div class="item-info">
+                    <div class="item-artist">${attributes.artist}</div>
+                    <div class="item-title">${attributes.title}</div>
+                    <div class="item-price">$${attributes.price}</div>
+					<br />
+                    <div class="item-link"><a href="${attributes.url}" class="button">Buy this item</a></div>
+                    <div class="back-link"><a href="#" class="button">&laquo; Back to Albums</a></div>
+                  </div>
+                </div>
+                </script>
+
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <h1>
+                    <a href="/">Access Intel Single Page Application</a>
+                </h1>
+            </div>
+
+            <div id="main">
+                 <div class="jstest">No Javascript!</div>
+            </div>
+        </div>
+        <script src="LAB.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+		   $LAB
+		   .script("jquery-1.4.4.min.js").wait()
+		   .script("jquery.tmpl.min.js")
+		   .script("underscore-min.js")
+		   .script("backbone-min.js")
+		   .script("cacheprovider.js").wait()
+		   .script("pub.js");      
+        </script>
+    </body>
+</html>
